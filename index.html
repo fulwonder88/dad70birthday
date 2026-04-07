@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>父亲七十寿辰</title>
+  <!-- Open Graph / WeChat Sharing -->
+  <meta property="og:title" content="父亲七十寿辰 · 福如东海 寿比南山">
+  <meta property="og:description" content="七十载春秋，岁月如歌。愿福寿安康，笑口常开。">
+  <meta property="og:image" content="https://dad70birthday.vercel.app/share_thumb.jpg">
+  <meta property="og:url" content="https://dad70birthday.vercel.app/">
+  <meta property="og:type" content="website">
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@400;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+  <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --bg: #FBF3E4;
+      --bg-alt: #F5EBDA;
+      --bg-dark: #1C0A0A;
+      --primary: #8B1A1A;
+      --primary-light: #B83A3A;
+      --gold: #C5922A;
+      --gold-light: #E8C973;
+      --gold-dark: #8B6914;
+      --text: #3E2723;
+      --text-light: #6D4C41;
+      --text-muted: #9E8E82;
+      --cream: #FDF8F0;
+      --border: rgba(139, 26, 26, 0.12);
+      --shadow: 0 4px 24px rgba(60, 20, 10, 0.08);
+      --shadow-lg: 0 12px 48px rgba(60, 20, 10, 0.12);
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== MUSIC PLAYER ===== */
+    .music-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 200;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: rgba(28, 10, 10, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: var(--gold-light);
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+    .music-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(197, 146, 42, 0.3);
+    }
+    .music-btn.playing {
+      animation: spin-disc 3s linear infinite;
+    }
+    @keyframes spin-disc {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0.8rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      transition: all 0.5s ease;
+      background: transparent;
+    }
+    .nav.scrolled {
+      background: rgba(28, 10, 10, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    .nav a {
+      font-family: 'ZCOOL XiaoWei', 'Noto Serif SC', serif;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.75);
+      letter-spacing: 0.15em;
+      padding: 0.4rem 0;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+    .nav a:hover, .nav a.active {
+      color: var(--gold-light);
+      border-bottom-color: var(--gold);
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(ellipse at 50% 40%, #3A1010 0%, #1C0A0A 70%);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 80%, rgba(197, 146, 42, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(197, 146, 42, 0.04) 0%, transparent 50%);
+    }
+    .hero-content {
+      position: relative;
+      text-align: center;
+      z-index: 2;
+    }
+    .shou-char {
+      font-family: 'Ma Shan Zheng', cursive;
+      font-size: clamp(10rem, 25vw, 22rem);
+      line-height: 1;
+      background: linear-gradient(135deg, #B8860B 0%, #FFD700 25%, #DAA520 50%, #FFD700 75%, #B8860B 100%);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 6s ease-in-out infinite;
+      filter: drop-shadow(0 0 40px rgba(218, 165, 32, 0.3));
+      margin-bottom: 0.5rem;
+    }
+    .hero-title {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+      color: var(--gold-light);
+      letter-spacing: 0.5em;
+      margin-bottom: 1rem;
+      word-break: keep-all;
+      padding: 0 1rem;
+    }
+    .hero-subtitle {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+      color: rgba(232, 201, 115, 0.5);
+      letter-spacing: 0.2em;
+      word-break: keep-all;
+      padding: 0 1rem;
+    }
+    .hero-line {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 1.5rem auto;
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(232, 201, 115, 0.4);
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      animation: bounce 2s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    /* ===== PARTICLES ===== */
+    .particles {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .particle {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: radial-gradient(circle, var(--gold-light), transparent);
+      border-radius: 50%;
+      animation: floatUp var(--dur) var(--delay) linear infinite;
+      opacity: 0;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    .section {
+      padding: 5rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-full {
+      padding: 5rem 0;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-header h2 {
+      font-family: 'Ma Shan Zheng', cursive;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      color: var(--primary);
+      letter-spacing: 0.15em;
+      margin-bottom: 0.8rem;
+      word-break: keep-all;
+      padding: 0 0.5rem;
+    }
+    .section-header p {
+      font-size: 1rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 2;
+    }
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem auto 0;
+      max-width: 300px;
+    }
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      opacity: 0.3;
+    }
+    .section-divider span {
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+
+    /* ===== BACKGROUND PATTERNS ===== */
+    .bg-warm {
+      background: var(--bg);
+    }
+    .bg-alt {
+      background: var(--bg-alt);
+    }
+    .bg-dark-section {
+      background: linear-gradient(180deg, #1C0A0A, #2A1414);
+      color: var(--cream);
+    }
+    .bg-dark-section .section-header h2 {
+      color: var(--gold-light);
+    }
+    .bg-dark-section .section-header p {
+      color: rgba(253, 248, 240, 0.6);
+    }
+
+    /* ===== FEATURE IMAGE ===== */
+    .feature-wrap {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+    }
+    .feature-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .feature-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 3rem 2rem 1.5rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.6));
+      color: white;
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ===== PHOTO GRID (Masonry) ===== */
+    .masonry {
+      columns: 3;
+      column-gap: 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+    }
+    .masonry-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .masonry-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+    .masonry-item:hover img {
+      transform: scale(1.03);
+    }
+
+    /* ===== PHOTO GRID (Regular) ===== */
+    .photo-grid {
+      display: grid;
+      gap: 1rem;
+      max-width: 1100px;
+      margin: 0 auto 2rem;
+      padding: 0 1rem;
+    }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .photo-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      aspect-ratio: 4/3;
+    }
+    .photo-card.portrait { aspect-ratio: 3/4; }
+    .photo-card.square { aspect-ratio: 1/1; }
+    .photo-card.auto { aspect-ratio: auto; }
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .photo-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .photo-card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ===== LOCATION BADGE ===== */
+    .location-group {
+      margin-bottom: 3rem;
+    }
+    .location-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-bottom: 1.2rem;
+      padding: 0.4rem 1rem 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .location-badge .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .bg-dark-section .location-badge {
+      color: var(--gold-light);
+      border-bottom-color: rgba(232, 201, 115, 0.2);
+    }
+
+    /* ===== SUB HEADER ===== */
+    .sub-header {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 1.4rem;
+      color: var(--primary);
+      text-align: center;
+      margin: 3rem 0 2rem;
+      letter-spacing: 0.2em;
+    }
+    .bg-dark-section .sub-header {
+      color: var(--gold-light);
+    }
+
+    /* ===== VIDEO ===== */
+    .video-gallery {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .video-scroll {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
+      -webkit-overflow-scrolling: touch;
+    }
+    .video-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    .video-scroll::-webkit-scrollbar-track {
+      background: rgba(139, 26, 26, 0.05);
+      border-radius: 3px;
+    }
+    .video-scroll::-webkit-scrollbar-thumb {
+      background: var(--gold);
+      border-radius: 3px;
+    }
+    .video-card {
+      flex: 0 0 320px;
+      scroll-snap-align: start;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #000;
+    }
+    .video-card video {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .video-featured {
+      max-width: 800px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .video-featured video {
+      width: 100%;
+      display: block;
+    }
+
+    /* ===== CLOSING SECTION ===== */
+    .closing {
+      position: relative;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem;
+      background:
+        linear-gradient(rgba(28, 10, 10, 0.75), rgba(28, 10, 10, 0.85)),
+        url('小院子/IMG_20260404_152615.jpg') center/cover no-repeat;
+    }
+    .closing h2 {
+      font-family: 'Ma Shan Zheng', cursive;
+      font-size: clamp(2rem, 6vw, 4rem);
+      background: linear-gradient(135deg, #B8860B, #FFD700, #DAA520);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 0.15em;
+      margin-bottom: 2rem;
+      word-break: keep-all;
+      padding: 0 1rem;
+    }
+    .closing h2 .mobile-br { display: none; }
+    .closing .blessing-text {
+      max-width: 640px;
+      font-size: 1.05rem;
+      line-height: 2.2;
+      color: rgba(253, 248, 240, 0.75);
+      margin-bottom: 3rem;
+    }
+    .closing .family-sign {
+      font-family: 'ZCOOL XiaoWei', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      letter-spacing: 0.3em;
+    }
+
+    /* ===== INTRO TEXT BLOCKS ===== */
+    .prose-block {
+      max-width: 680px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+      font-size: 1rem;
+      color: var(--text-light);
+      line-height: 2.2;
+      padding: 0 1rem;
+    }
+    .bg-dark-section .prose-block {
+      color: rgba(253, 248, 240, 0.6);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(8px); }
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: 0.8; }
+      90% { opacity: 0.8; }
+      100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+    .delay-4 { transition-delay: 0.4s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .masonry { columns: 2; }
+      .grid-3 { grid-template-columns: repeat(2, 1fr); }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .nav { gap: 1rem; padding: 0.6rem 1rem; }
+      .nav a { font-size: 0.82rem; letter-spacing: 0.08em; }
+    }
+    @media (max-width: 600px) {
+      .masonry { columns: 1; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .section { padding: 3rem 1rem; }
+      .nav { gap: 0.6rem; padding: 0.5rem 0.8rem; }
+      .nav a { font-size: 0.75rem; letter-spacing: 0.05em; }
+      .video-card { flex: 0 0 280px; }
+      .video-card video { height: 180px; }
+      .feature-caption { font-size: 0.9rem; padding: 2rem 1rem 1rem; }
+      .hero-title { letter-spacing: 0.2em; }
+      .section-header h2 { letter-spacing: 0.08em; }
+      .closing h2 { letter-spacing: 0.08em; }
+      .closing h2 .mobile-br { display: inline; }
+    }
+
+    /* ===== GOLDEN FRAME DECORATION ===== */
+    .golden-frame {
+      position: relative;
+      padding: 6px;
+      background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold), var(--gold-light), var(--gold-dark));
+      border-radius: 14px;
+      box-shadow: var(--shadow-lg);
+    }
+    .golden-frame > img,
+    .golden-frame > video {
+      border-radius: 10px;
+    }
+
+    /* ===== DUAL PHOTO LAYOUT ===== */
+    .dual-feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+    .dual-feature .photo-card {
+      aspect-ratio: auto;
+    }
+    @media (max-width: 600px) {
+      .dual-feature { grid-template-columns: 1fr; }
+    }
+
+    /* ===== FULLWIDTH BAND ===== */
+    .fullwidth-band {
+      width: 100%;
+      max-height: 50vh;
+      overflow: hidden;
+      margin: 2rem 0;
+    }
+    .fullwidth-band img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== BACKGROUND MUSIC ===== -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="beyond_nongmin.mp3" type="audio/mpeg">
+  </audio>
+  <button class="music-btn" id="musicBtn" title="播放/暂停背景音乐">&#9835;</button>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="nav" id="nav">
+    <a href="#birthday">寿辰花絮</a>
+    <a href="#countryside">田园岁月</a>
+    <a href="#work">辛勤劳作</a>
+    <a href="#travel">出行旅游</a>
+    <a href="#closing">祝福</a>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="shou-char">寿</div>
+      <div class="hero-line"></div>
+      <h1 class="hero-title">父亲七十寿辰</h1>
+      <p class="hero-subtitle">七十载春秋 · 岁月如歌</p>
+    </div>
+    <div class="scroll-hint">向下滑动 ▾</div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SECTION 1: 寿辰花絮                          -->
+  <!-- ============================================ -->
+  <div class="bg-warm" id="birthday">
+    <div class="section">
+      <div class="section-header fade-in">
+        <h2>寿辰花絮</h2>
+        <div class="section-divider"><span>&#10022;</span></div>
+        <p>七十载风雨兼程，今朝共庆华诞<br>您的笑容，是全家最温暖的阳光</p>
+      </div>
+
+      <!-- Dad laughing - FEATURE -->
+      <div class="feature-wrap fade-in">
+        <img src="生日聚会/mmexport1775310489546.jpg" alt="父亲开心的笑容" loading="lazy">
+        <div class="feature-caption">笑口常开，幸福安康</div>
+      </div>
+
+      <!-- Birthday cake -->
+      <div class="dual-feature">
+        <div class="photo-card auto fade-in">
+          <img src="生日聚会/IMG_20260404_113935.jpg" alt="70岁生日蛋糕" loading="lazy">
+        </div>
+        <div class="video-featured fade-in" style="margin:0; box-shadow: var(--shadow-lg);">
+          <video controls preload="none" style="width:100%;display:block;">
+            <source src="生日聚会/lQbPKGlKAJNWiKkAALDr_Vh4MJadugmn0cqmreMA.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- SECTION 2A: 田园岁月                          -->
+  <!-- ============================================ -->
+  <div class="bg-dark-section" id="countryside">
+    <div class="section">
+      <div class="section-header fade-in">
+        <h2>田园岁月</h2>
+        <div class="section-divider"><span>&#10022;</span></div>
+        <p>油菜花开满田野，岁月静好<br>这片土地，承载着一生的耕耘与守望</p>
+      </div>
+
+      <!-- Rapeseed sunset - fullwidth -->
+      <div class="feature-wrap fade-in" style="max-width:1000px;">
+        <img src="小院子/IMG_20260403_181137.jpg" alt="油菜花田日落" loading="lazy">
+        <div class="feature-caption">油菜花田 · 夕阳如画</div>
+      </div>
+
+      <!-- Dad contemplating in field + close-up -->
+      <div class="dual-feature">
+        <div class="photo-card auto fade-in">
+          <img src="小院子/IMG_20260404_151252.jpg" alt="田间沉思" loading="lazy">
+        </div>
+        <div class="photo-card auto fade-in delay-1">
+          <img src="小院子/IMG_20260404_152615.jpg" alt="油菜花间" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Girl drawing + flowers + feet -->
+      <div class="photo-grid grid-3">
+        <div class="photo-card portrait fade-in">
+          <img src="小院子/IMG_20260404_151301.jpg" alt="孙女在田间画画" loading="lazy">
+        </div>
+        <div class="photo-card fade-in delay-1">
+          <img src="小院子/IMG_20260404_152415.jpg" alt="油菜花" loading="lazy">
+        </div>
+        <div class="photo-card fade-in delay-2">
+          <img src="小院子/IMG_20260404_153226.jpg" alt="蓝天下的惬意" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Countryside Videos -->
+      <div class="sub-header fade-in">田园影像</div>
+      <div class="video-gallery fade-in">
+        <div class="video-scroll">
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="小院子/lQbPJwb6GH4niGEAALD-bmv91PADvwmmn_zVinMA.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="小院子/lQbPJwqQr2o5mmEAALB366uO6n7Iagmmn_By_qcA.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="小院子/lQbPJxroXFmiouEAALCpNJ8ctlq0wAmmn-YSb9UA.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="小院子/lQbPKc5EB6F7mmEAALDFNG9lRkh7Ewmmn-KzivIA.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="小院子/lQbPKdDuJptVrukAALDsiU7TLUIyVQmn0bvKdzsA.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- SECTION 2B: 辛勤劳作·薪火相传                   -->
+  <!-- ============================================ -->
+  <div class="bg-alt" id="work">
+    <div class="section">
+      <div class="section-header fade-in">
+        <h2>辛勤劳作 · 薪火相传</h2>
+        <div class="section-divider"><span>&#10022;</span></div>
+        <p>一生勤劳，双手耕耘出幸福的田园<br>如今，这份勤劳与执着，正在小辈们手中延续</p>
+      </div>
+
+      <!-- Dad teaching granddaughter - FEATURE -->
+      <div class="feature-wrap fade-in" style="max-width:700px;">
+        <img src="辛勤劳作/IMG_20260404_173008.jpg" alt="教孙女锄地" loading="lazy">
+        <div class="feature-caption">手把手，传承的不只是劳作</div>
+      </div>
+
+      <!-- Dad with both kids -->
+      <div class="dual-feature">
+        <div class="photo-card auto fade-in">
+          <img src="辛勤劳作/IMG_20260404_172936.jpg" alt="祖孙三人田间劳作" loading="lazy">
+        </div>
+        <div class="photo-card auto fade-in delay-1">
+          <img src="辛勤劳作/IMG_20260404_174504.jpg" alt="一起劳动" loading="lazy">
+        </div>
+      </div>
+
+      <!-- Vegetables - the harvest -->
+      <div class="prose-block fade-in">自家地里的收获，切好的蒜薹，满满都是生活的味道</div>
+      <div class="feature-wrap fade-in" style="max-width:700px;">
+        <img src="辛勤劳作/IMG_20260403_230116.jpg" alt="新鲜蔬菜" loading="lazy">
+      </div>
+
+      <!-- Work Videos -->
+      <div class="sub-header fade-in">劳作影像</div>
+      <div class="video-gallery fade-in">
+        <div class="video-scroll">
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="辛勤劳作/胶水-葫芦.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="辛勤劳作/lQbPJwOaE3rO16kAALBCYwZ-AhrEwQmogX1iNCYA.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="辛勤劳作/lQbPJwQjaNFr6mkAALDVLz-FCv6Ndgmn0bDN0XwA.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="辛勤劳作/lQbPJwVg0tFeNSkAALCHcap2WLeNxgmogWnJKCsA.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="辛勤劳作/lQbPJx7QzhfjdqEAALBc2O0hWHGjKgmmoGqXN4AA.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="辛勤劳作/lQbPJx_z1-axiKEAALBo8LA0IsmlDQmmn7_CY-gA.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="辛勤劳作/lQbPJyIVilwYhGEAALDZ5bR2Xzg1HQmmoCItNOcA.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="辛勤劳作/lQbPKG6ePqjXTCEAALBHYnp2IePNLwmmoEY-NOgA.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="辛勤劳作/lQbPKG8vw4ljkmEAALBOCse8on3Ipgmmn9hPaO0A.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="辛勤劳作/lQbPKGfC61VG-GEAALCAeB3X0PW1ewmmn9IXXjsA.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="辛勤劳作/lQbPKGmb2z_pSOEAALA1DsdElzv67wmmoMVInw0A.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-card">
+            <video controls preload="none">
+              <source src="辛勤劳作/lQbPKHEj_EIo9GEAALDT5veUSxvnaAmmoLx92F4A.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- SECTION 3: 天伦之乐·出行旅游                    -->
+  <!-- ============================================ -->
+  <div class="bg-warm" id="travel">
+    <div class="section">
+      <div class="section-header fade-in">
+        <h2>天伦之乐 · 出行旅游</h2>
+        <div class="section-divider"><span>&#10022;</span></div>
+        <p>带着一家人的爱，走过祖国的大好河山<br>每一次出行，都是最珍贵的家庭记忆</p>
+      </div>
+
+      <!-- Temple of Heaven Family Photo - FEATURE -->
+      <div class="feature-wrap fade-in" style="max-width:800px;">
+        <div class="golden-frame">
+          <img src="北京出行/4b55896e8dfa46e3d6a4f00d513c1439.jpg" alt="天坛全家福" loading="lazy" style="border-radius:10px;">
+        </div>
+      </div>
+      <div class="prose-block fade-in">天坛祈年殿前，三代同堂，阳光正好</div>
+
+      <!-- 天安门广场 -->
+      <div class="location-group">
+        <div class="location-badge fade-in"><span class="dot"></span>天安门广场</div>
+        <div class="photo-grid grid-2" style="max-width:800px;">
+          <div class="photo-card portrait fade-in">
+            <img src="北京出行/IMG_7811.HEIC.JPG" alt="天安门挥旗" loading="lazy">
+          </div>
+          <div class="photo-card fade-in delay-1">
+            <img src="北京出行/IMG_7816.HEIC.JPG" alt="天安门城楼前" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- 人民大会堂 -->
+      <div class="location-group">
+        <div class="location-badge fade-in"><span class="dot"></span>人民大会堂</div>
+        <div class="photo-grid grid-3">
+          <div class="photo-card fade-in">
+            <img src="北京出行/IMG_7827.HEIC.JPG" alt="人民大会堂前合影" loading="lazy">
+          </div>
+          <div class="photo-card fade-in delay-1">
+            <img src="北京出行/IMG_7830.HEIC.JPG" alt="人民大会堂前" loading="lazy">
+          </div>
+          <div class="photo-card fade-in delay-2">
+            <img src="北京出行/IMG_7853.HEIC.JPG" alt="人民大会堂全景" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- 参观留念 -->
+      <div class="location-group">
+        <div class="location-badge fade-in"><span class="dot"></span>参观留念</div>
+        <div class="masonry">
+          <div class="masonry-item fade-in">
+            <img src="北京出行/IMG_7873.HEIC.JPG" alt="人民英雄纪念碑" loading="lazy">
+          </div>
+          <div class="masonry-item fade-in">
+            <img src="北京出行/IMG_7890.HEIC.JPG" alt="大厅留影" loading="lazy">
+          </div>
+          <div class="masonry-item fade-in">
+            <img src="北京出行/IMG_7919.HEIC.JPG" alt="松鹤延年前合影" loading="lazy">
+          </div>
+          <div class="masonry-item fade-in">
+            <img src="北京出行/IMG_8200.HEIC.JPG" alt="大美中华画前" loading="lazy">
+          </div>
+          <div class="masonry-item fade-in">
+            <img src="北京出行/IMG_8203.HEIC.JPG" alt="大殿参观" loading="lazy">
+          </div>
+          <div class="masonry-item fade-in">
+            <img src="北京出行/IMG_8205.HEIC.JPG" alt="大殿合影" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <!-- 欢乐时光 -->
+      <div class="location-group">
+        <div class="location-badge fade-in"><span class="dot"></span>欢乐时光 · 杜莎夫人蜡像馆</div>
+        <!-- Pikachu hat - feature -->
+        <div class="feature-wrap fade-in" style="max-width:500px;">
+          <img src="北京出行/IMG_8167.HEIC.JPG" alt="戴皮卡丘帽的父亲" loading="lazy">
+          <div class="feature-caption">童心未泯，快乐如少年</div>
+        </div>
+
+        <div class="photo-grid grid-3">
+          <div class="photo-card fade-in">
+            <img src="北京出行/212b0cbef74d3bab1e912ee20aa90fba.jpg" alt="与博尔特合影" loading="lazy">
+          </div>
+          <div class="photo-card fade-in delay-1">
+            <img src="北京出行/207d37d0266bdf1d41272043bbdece55.jpg" alt="与姚明合影" loading="lazy">
+          </div>
+          <div class="photo-card fade-in delay-2">
+            <img src="北京出行/7aedbfdea3c6637f5ec28a468d038f30.jpg" alt="防守姚明" loading="lazy">
+          </div>
+        </div>
+        <div class="photo-grid grid-3" style="margin-top:0;">
+          <div class="photo-card fade-in">
+            <img src="北京出行/2d871fd399a2ee85e7ec32d8c0150967.jpg" alt="蜡像馆留影" loading="lazy">
+          </div>
+          <div class="photo-card fade-in delay-1">
+            <img src="北京出行/2c9abc71aa687ed43c45734a86e3774a.jpg" alt="蜡像馆合影" loading="lazy">
+          </div>
+          <div class="photo-card fade-in delay-2">
+            <img src="北京出行/bb3d69fcd9bed4d014b8c5e24489cca0.jpg" alt="欢乐时光" loading="lazy">
+          </div>
+        </div>
+        <div class="photo-grid grid-2" style="max-width:700px; margin-top:0;">
+          <div class="photo-card fade-in">
+            <img src="北京出行/1bace6e300752b3cb2f36d879077be68.jpg" alt="蜡像馆留影" loading="lazy">
+          </div>
+          <div class="photo-card fade-in delay-1">
+            <img src="辛勤劳作/IMG_20260403_230116.jpg" alt="自家菜园的收获" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- CLOSING                                      -->
+  <!-- ============================================ -->
+  <section class="closing fade-in" id="closing">
+    <h2>福如东海<br class="mobile-br"> · 寿比南山</h2>
+    <div class="blessing-text">
+      七十年光阴荏苒，您用坚实的双手为家撑起了一片天。<br>
+      从田间到远方，从劳作到欢笑，<br>
+      每一个瞬间都凝聚着爱与温暖。<br><br>
+      愿岁月善待您，<br>
+      福寿安康，笑口常开，<br>
+      往后余生，皆是幸福好时光。
+    </div>
+    <div class="family-sign">—— 全家敬祝 ——</div>
+  </section>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // ===== PARTICLES =====
+    (function() {
+      const container = document.getElementById('particles');
+      for (let i = 0; i < 25; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + '%';
+        p.style.setProperty('--dur', (8 + Math.random() * 12) + 's');
+        p.style.setProperty('--delay', (Math.random() * 10) + 's');
+        p.style.width = (2 + Math.random() * 3) + 'px';
+        p.style.height = p.style.width;
+        container.appendChild(p);
+      }
+    })();
+
+    // ===== SCROLL ANIMATIONS =====
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ===== NAVIGATION =====
+    const nav = document.getElementById('nav');
+    const sections = document.querySelectorAll('[id]');
+    const navLinks = document.querySelectorAll('.nav a');
+
+    window.addEventListener('scroll', () => {
+      // Nav background
+      if (window.scrollY > 80) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+
+      // Active section
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 200;
+        if (window.scrollY >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+    // ===== BACKGROUND MUSIC =====
+    (function() {
+      const audio = document.getElementById('bgMusic');
+      const btn = document.getElementById('musicBtn');
+      let hasInteracted = false;
+
+      audio.volume = 0.35;
+
+      function toggleMusic() {
+        if (audio.paused) {
+          audio.play().then(() => {
+            btn.classList.add('playing');
+            btn.innerHTML = '&#9835;';
+          }).catch(() => {});
+        } else {
+          audio.pause();
+          btn.classList.remove('playing');
+          btn.innerHTML = '&#9835;';
+        }
+      }
+
+      btn.addEventListener('click', toggleMusic);
+
+      // Auto-play on first user interaction (touch/click anywhere)
+      function autoPlay() {
+        if (hasInteracted) return;
+        hasInteracted = true;
+        audio.play().then(() => {
+          btn.classList.add('playing');
+        }).catch(() => {});
+        document.removeEventListener('click', autoPlay);
+        document.removeEventListener('touchstart', autoPlay);
+      }
+      document.addEventListener('click', autoPlay);
+      document.addEventListener('touchstart', autoPlay);
+
+      // Pause music when any video plays, resume when video pauses
+      document.querySelectorAll('video').forEach(video => {
+        video.addEventListener('play', () => {
+          if (!audio.paused) {
+            audio.pause();
+            btn.classList.remove('playing');
+            video.dataset.wasMusicPlaying = 'true';
+          }
+        });
+        video.addEventListener('pause', () => {
+          if (video.dataset.wasMusicPlaying === 'true') {
+            audio.play().then(() => {
+              btn.classList.add('playing');
+            }).catch(() => {});
+            video.dataset.wasMusicPlaying = '';
+          }
+        });
+        video.addEventListener('ended', () => {
+          if (video.dataset.wasMusicPlaying === 'true') {
+            audio.play().then(() => {
+              btn.classList.add('playing');
+            }).catch(() => {});
+            video.dataset.wasMusicPlaying = '';
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
